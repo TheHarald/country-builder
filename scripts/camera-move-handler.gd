@@ -24,7 +24,7 @@ func validate_zoom(value):
 func zoom_controller():
 	if is_dragging: return
 	var current_zoom = get_zoom()
-	var delta_zoom = Vector2(0,0)
+	var delta_zoom = Vector2.ZERO
 	#if is_zoom_allow(current_zoom):
 	if Input.is_action_just_released("wheel-down"):
 		delta_zoom = - Vector2(zoom_speed, zoom_speed)
@@ -35,7 +35,6 @@ func zoom_controller():
 
 func drag_controller():
 	if Input.is_action_pressed("wheel-click"):
-		#print(get_global_mouse_position())
 		if not is_dragging:
 			drag_start = get_global_mouse_position()
 			is_dragging = true
